@@ -4,7 +4,7 @@ from urllib.request import urlopen
 from urllib.parse import urljoin, urlparse
 from html.parser import HTMLParser
 from xml.etree import ElementTree
-BASE = os.environ.get('MC_BASE_URL', 'http://127.0.0.1:8080')
+BASE = os.environ.get('MC_BASE_URL', 'http://127.0.0.1:8080').rstrip('/')
 ROOT = os.path.dirname(os.path.dirname(__file__))
 class Page(HTMLParser):
     def __init__(self):
@@ -31,7 +31,7 @@ for route in routes:
         for asset in page.assets:
             if asset.startswith('/'): assets.add(asset)
 for asset in assets:
-    with urlopen(BASE + asset, timeout=10) as response:
+    with urlopen(urljoin(BASE + '/', asset), timeout=10) as response:
         assert response.status == 200 and response.read(1), asset
 print(f'PASS: {len(routes)} routes, one H1 and IT/EN alternates per route; {len(assets)} local assets.')
 try:

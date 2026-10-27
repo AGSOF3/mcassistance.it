@@ -54,6 +54,16 @@ Video illustrativo originale realizzato con Blender: cella di finitura, robot ar
 
 ## Rilascio e limiti
 
-Distribuire file PHP e asset mantenendo maiuscole/minuscole e directory. Nessun database necessario per il sito pubblico. Sul server di produzione abilitare compressione HTTP e cache degli asset secondo la configurazione del servizio; ripetere Lighthouse sul dominio effettivo. La sitemap usa il dominio pubblico esistente.
+Distribuire file PHP e asset mantenendo maiuscole/minuscole e directory. È supportata anche l’installazione in sottocartella (ad esempio `/v2/`): il prefisso viene rilevato automaticamente dal percorso dell’entry point PHP, senza configurazione manuale. CSS, JavaScript, immagini, video, PDF, pagine IT/EN, metadati e vecchie ancore usano questo prefisso; il gestionale continua a puntare a `/CadTimbratore/area-riservata/` nella radice del dominio. Dopo un aggiornamento via FileZilla, trasferire anche `site/data.php`, `site/render.php` e `assets/precision/site.js`, quindi ricaricare senza cache. La sitemap statica resta destinata al sito pubblico nella radice del dominio. Nessun database necessario per il sito pubblico. Sul server di produzione abilitare compressione HTTP e cache degli asset secondo la configurazione del servizio; ripetere Lighthouse sul dominio effettivo. La sitemap usa il dominio pubblico esistente.
 
 Il gestionale conserva il problema preesistente: connessione al database remoto rifiutata. Non sono stati modificati parametri di produzione, credenziali, logica gestionale o dati. Non è stato eseguito un invio email reale. Il lavoro non è stato pubblicato sul sito pubblico.
+
+
+Verifica della distribuzione in sottocartella:
+
+```sh
+MC_BASE_URL=http://127.0.0.1:8081/v2 python3 tests/smoke.py
+MC_BASE_URL=http://127.0.0.1:8081/v2 PLAYWRIGHT_MODULE=/opt/codex/cua_node/lib/node_modules/playwright node tests/deployment.cjs
+```
+
+Verificati nel cloud la radice, `/v2/` e `/preview/client/`, usando veri document root PHP e senza riscritture degli URL nel browser: 44 pagine e 108 risorse per ciascun percorso; test browser su CSS effettivamente applicato, link, video, filtri, cambio lingua e vecchie ancore. Il dominio remoto non è stato verificato direttamente perché il proxy dell’ambiente ne rifiuta l’accesso.

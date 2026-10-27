@@ -1,7 +1,22 @@
 <?php
 function t($it,$en){global $lang;return $lang==='en'?$en:$it;}
 function e($s){return htmlspecialchars($s,ENT_QUOTES,'UTF-8');}
-function url($page='home',$other=false){global $lang;$l=$other?($lang==='en'?'it':'en'):$lang;$paths=['home'=>['',''],'company'=>['azienda/','company/'],'solutions'=>['soluzioni/','solutions/'],'projects'=>['realizzazioni/','projects/'],'contact'=>['contatti/','contact/'],'privacy'=>['privacy/','privacy/'],'transparency'=>['trasparenza/','transparency/']];return ($l==='en'?'/en/':'/').$paths[$page][$l==='en'?1:0];}
+// Derive the installation prefix from the entry point, independently of language/page depth.
+function site_base(){
+ static $base=null;
+ if($base!==null)return $base;
+ $base='';
+ $root=realpath(__DIR__.'/..');
+ $script=realpath($_SERVER['SCRIPT_FILENAME']??'');
+ $name=str_replace('\\','/',$_SERVER['SCRIPT_NAME']??'');
+ if($script&&$root&&strncmp($script,$root.DIRECTORY_SEPARATOR,strlen($root)+1)===0){
+  $relative=str_replace(DIRECTORY_SEPARATOR,'/',substr($script,strlen($root)));
+  if(substr($name,-strlen($relative))===$relative)$base=rtrim(substr($name,0,-strlen($relative)),'/');
+ }
+ return $base;
+}
+function site_path($path='/'){return site_base().'/'.ltrim($path,'/');}
+function url($page='home',$other=false){global $lang;$l=$other?($lang==='en'?'it':'en'):$lang;$paths=['home'=>['',''],'company'=>['azienda/','company/'],'solutions'=>['soluzioni/','solutions/'],'projects'=>['realizzazioni/','projects/'],'contact'=>['contatti/','contact/'],'privacy'=>['privacy/','privacy/'],'transparency'=>['trasparenza/','transparency/']];return site_path(($l==='en'?'en/':'').$paths[$page][$l==='en'?1:0]);}
 $nav=['home'=>'Home','company'=>t('Azienda','Company'),'solutions'=>t('Soluzioni','Solutions'),'projects'=>t('Realizzazioni','Projects'),'contact'=>t('Contatti','Contact')];
 $solutions=[
  ['isole',t('Isole robotizzate','Robotic cells'),t('Il tuo processo. La nostra ingegneria.','Your process. Our engineering.'),t('Progettazione e costruzione di impianti robotizzati su misura, dal pezzo da lavorare alla cella completa.','Design and construction of bespoke robotic systems, from the workpiece to the complete cell.'),'acciaio'],
@@ -22,7 +37,7 @@ $raw=[
 ];
 foreach($raw as $p){$projects[$p[0]]=['id'=>$p[0],'name'=>t($p[1],$p[2]),'type'=>$p[3],'material'=>t($p[4],$p[5])];}
 $types=['all'=>t('Tutte','All projects'),'robot'=>t('Impianti robotizzati','Robotic systems'),'tending'=>t('Asservimento','Machine tending'),'manual'=>t('Unità manuali','Manual units'),'chairs'=>t('Basi sedie','Chair bases')];
-function picture($name,$alt,$class='',$eager=false){$files=glob(__DIR__.'/../assets/precision/'.$name.'-*.webp');$set=[];foreach($files as $file){preg_match('/-(\d+)\.webp$/',$file,$m);$set[]='/assets/precision/'.basename($file).' '.$m[1].'w';}$src='/assets/precision/'.$name.'-480.webp';[$w,$h]=getimagesize(__DIR__.'/..'.$src);echo '<picture><source type="image/avif" srcset="'.e(str_replace('.webp','.avif',implode(', ',$set))).'" sizes="'.($eager?'100vw':'(max-width: 700px) 100vw, 50vw').'"><img class="'.e($class).'" src="'.$src.'" srcset="'.e(implode(', ',$set)).'" sizes="'.($eager?'100vw':'(max-width: 700px) 100vw, 50vw').'" width="'.$w.'" height="'.$h.'" alt="'.e($alt).'" '.($eager?'fetchpriority="high" loading="eager"':'loading="lazy"').' decoding="async"></picture>';}
+function picture($name,$alt,$class='',$eager=false){$files=glob(__DIR__.'/../assets/precision/'.$name.'-*.webp');$set=[];foreach($files as $file){preg_match('/-(\d+)\.webp$/',$file,$m);$set[]=site_path('/assets/precision/'.basename($file)).' '.$m[1].'w';}$src='/assets/precision/'.$name.'-480.webp';[$w,$h]=getimagesize(__DIR__.'/..'.$src);$src=site_path($src);echo '<picture><source type="image/avif" srcset="'.e(str_replace('.webp','.avif',implode(', ',$set))).'" sizes="'.($eager?'100vw':'(max-width: 700px) 100vw, 50vw').'"><img class="'.e($class).'" src="'.$src.'" srcset="'.e(implode(', ',$set)).'" sizes="'.($eager?'100vw':'(max-width: 700px) 100vw, 50vw').'" width="'.$w.'" height="'.$h.'" alt="'.e($alt).'" '.($eager?'fetchpriority="high" loading="eager"':'loading="lazy"').' decoding="async"></picture>';}
 function projectCard($p,$eager=false){global $types;echo '<article class="project-card" data-category="'.$p['type'].'" data-material="'.e($p['material']).'"><a href="'.url('projects').'?progetto='.$p['id'].'"><div class="project-image">';picture($p['id'],$p['name'],'',$eager);echo '<span class="project-arrow" aria-hidden="true">'.arrow().'</span></div><div class="project-meta"><span class="eyebrow">'.e($types[$p['type']]).'</span><h3>'.e($p['name']).'</h3><span>'.e($p['material']?:t('Soluzione su misura','Bespoke solution')).'</span></div></a></article>';}
 
 function arrow(){return '<svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 19L19 5M5 5h14v14"/></svg>';}
