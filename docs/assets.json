@@ -1,0 +1,134 @@
+[
+  {
+    "source": "assets/img/portfolio/maniglie.jpg",
+    "width": 1202,
+    "height": 675,
+    "bytes": 149196
+  },
+  {
+    "source": "assets/img/portfolio/alluminio.jpg",
+    "width": 1182,
+    "height": 665,
+    "bytes": 269991
+  },
+  {
+    "source": "assets/img/portfolio/rubinetteria3.jpeg",
+    "width": 768,
+    "height": 1024,
+    "bytes": 173074
+  },
+  {
+    "source": "assets/img/portfolio/basisedie2.jpg",
+    "width": 1024,
+    "height": 768,
+    "bytes": 149991
+  },
+  {
+    "source": "assets/img/portfolio/pulituraManuale.jpg",
+    "width": 768,
+    "height": 1365,
+    "bytes": 284088
+  },
+  {
+    "source": "assets/img/portfolio/zamac.jpg",
+    "width": 562,
+    "height": 999,
+    "bytes": 175633
+  },
+  {
+    "source": "assets/img/portfolio/asservimento1.jpg",
+    "width": 1024,
+    "height": 768,
+    "bytes": 376163
+  },
+  {
+    "source": "assets/img/portfolio/ottone.jpg",
+    "width": 1374,
+    "height": 773,
+    "bytes": 245433
+  },
+  {
+    "source": "assets/img/portfolio/colonnebirra.jpg",
+    "width": 1024,
+    "height": 768,
+    "bytes": 272932
+  },
+  {
+    "source": "assets/img/portfolio/smerigliaturaManuale.jpg",
+    "width": 1024,
+    "height": 768,
+    "bytes": 63078
+  },
+  {
+    "source": "assets/img/portfolio/asservimento2.jpg",
+    "width": 1361,
+    "height": 770,
+    "bytes": 359480
+  },
+  {
+    "source": "assets/img/portfolio/acciaio.jpg",
+    "width": 3264,
+    "height": 2448,
+    "bytes": 2239562
+  },
+  {
+    "source": "assets/img/portfolio/rubinetteria2.jpg",
+    "width": 1335,
+    "height": 750,
+    "bytes": 227476
+  },
+  {
+    "source": "assets/img/portfolio/basisedie1.jpg",
+    "width": 1024,
+    "height": 768,
+    "bytes": 117723
+  },
+  {
+    "source": "assets/img/portfolio/rubinetteria1.jpg",
+    "width": 768,
+    "height": 1024,
+    "bytes": 264425
+  },
+  {
+    "source": "assets/img/home-bg.jpg",
+    "width": 1024,
+    "height": 768,
+    "bytes": 145099
+  },
+  {
+    "source": "assets/img/about.png",
+    "width": 600,
+    "height": 600,
+    "bytes": 563924
+  },
+  {
+    "source": "assets/img/team/GiovanniCorsiniBig.jpg",
+    "width": 959,
+    "height": 1280,
+    "bytes": 159139
+  },
+  {
+    "source": "assets/img/team/OlsiTafaBig.jpg",
+    "width": 961,
+    "height": 1280,
+    "bytes": 106163
+  },
+  {
+    "source": "assets/img/team/MatteoFontanaBig.jpg",
+    "width": 960,
+    "height": 1280,
+    "bytes": 185281
+  },
+  {
+    "source": "assets/img/team/CatelloMassaBig.jpg",
+    "width": 960,
+    "height": 1278,
+    "bytes": 346178
+  },
+  {
+    "source": "assets/img/team/StefanoBuffoliBig.jpg",
+    "width": 960,
+    "height": 1280,
+    "bytes": 254111
+  }
+]
