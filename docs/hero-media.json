@@ -1,0 +1,22 @@
+{
+  "robotic-cell-1080.mp4": {
+    "codec": "h264",
+    "width": 1920,
+    "height": 1080,
+    "frames": "144",
+    "fps": "24/1",
+    "duration": "6.000000",
+    "bytes": 434314,
+    "audio": false
+  },
+  "robotic-cell-720.mp4": {
+    "codec": "h264",
+    "width": 1280,
+    "height": 720,
+    "frames": "144",
+    "fps": "24/1",
+    "duration": "6.000000",
+    "bytes": 171647,
+    "audio": false
+  }
+}

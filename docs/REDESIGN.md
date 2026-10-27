@@ -4,7 +4,7 @@
 
 Sito PHP 8.2 multipagina, senza framework o dipendenze di produzione aggiuntive. `site/render.php` contiene i componenti condivisi e i template; `site/data.php` contiene testi IT/EN, percorsi, applicazioni e portfolio. Gli entry point nelle cartelle italiane e inglesi selezionano lingua e pagina. CSS e JS nativi in `assets/precision/`.
 
-Palette grafite / bianco caldo / lime, tipografia di sistema senza richieste remote, fotografia industriale originale. Componenti: hero cinematografica statica, griglia tecnica CSS, card interattive delle soluzioni, portfolio filtrabile, processo espandibile con tastiera, dettagli tecnici e indicatori storici. Animazioni limitate a opacity/transform e disattivate con prefers-reduced-motion. Nessun video parte automaticamente. Anche le copertine dei video vengono caricate vicino al viewport tramite IntersectionObserver. La risposta HTML usa gzip quando disponibile e accettato dal browser.
+Palette grafite / bianco caldo / lime, tipografia di sistema senza richieste remote, fotografia industriale originale. Componenti: hero cinematografica statica, griglia tecnica CSS, card interattive delle soluzioni, portfolio filtrabile, processo espandibile con tastiera, dettagli tecnici e indicatori storici. Animazioni limitate a opacity/transform e disattivate con prefers-reduced-motion. La hero riproduce un video 3D illustrativo in loop senza audio, con comando pausa e fallback statico per movimento ridotto e risparmio dati. I video del portfolio non partono automaticamente. Anche le copertine dei video vengono caricate vicino al viewport tramite IntersectionObserver. La risposta HTML usa gzip quando disponibile e accettato dal browser.
 
 ## Analisi dei contenuti e preservazione
 
@@ -14,7 +14,7 @@ Il checkout originale comprende una home italiana e una inglese, asset Bootstrap
 - Due video MP4 riprodotti a richiesta; il MOV originale resta disponibile con link dedicato. Gli originali non sono stati rimossi o modificati.
 - `docs/assets.json` cataloga sorgenti delle immagini utilizzate, dimensioni e peso. Derivati AVIF con fallback WebP a 480/720/960/1600 px dove la risoluzione originale lo permette; nessun ingrandimento artificiale dei formati maggiori.
 - Date documentate: fondazione giugno 2000, prima cella completa nel 2016. Il dato 131 è mantenuto con nota storica relativa al ventennale, senza presentarlo come totale attuale. Non vengono inventati volumi produttivi, tempi ciclo o specifiche.
-- Le quattro persone e i ruoli della sezione team originale sono presentati come referenti della storia aziendale; non si afferma che l'organigramma sia aggiornato. Tutte le altre fotografie originali restano intatte.
+- La sezione delle persone è stata rimossa dalle pagine azienda IT/EN su richiesta. Le fotografie originali restano nel repository. Il marchio nell’header e nel footer utilizza `assets/img/logop.png`, con derivati WebP per alleggerire il download.
 - Indirizzo, email, telefono, P. IVA, codice fiscale, link social e documento sugli aiuti pubblici 2023 sono mantenuti. Rimossi i recapiti placeholder del vecchio form nascosto. Favicon con percorso e maiuscole corretti.
 - Entrambi i gestionali sono integralmente conservati e non modificati. Il link principale mantiene `/CadTimbratore/area-riservata/`.
 - Privacy e trasparenza hanno pagine IT/EN dedicate. L'informativa preesistente è preservata nel contenuto e integrata con il funzionamento effettivo del form e della mappa. Il titolare dovrebbe verificare l'adeguatezza legale complessiva prima del rilascio.
@@ -47,6 +47,10 @@ Validazioni eseguite nel cloud:
 - Nessun overflow orizzontale rilevato a 360, 390, 768 e 1440 px nelle sei pagine campionate.
 - Axe WCAG 2 A/AA e 2.1 AA: nessuna violazione nelle pagine home, azienda, soluzioni, realizzazioni, contatti e home inglese. Le verifiche automatiche non sostituiscono una verifica assistiva manuale completa.
 - Lighthouse mobile simulato sulla home: Performance 100, Accessibility 100, Best Practices 100, SEO 100; LCP 1.3 s, CLS 0, TBT 0 ms. Misurazione locale, non risultato di produzione. INP reale da verificare con dati di campo dopo la pubblicazione. Il portfolio raggiunge Performance 99, Accessibility 100, Best Practices 100, SEO 100, LCP 2,0 s e CLS 0. Un controllo Event Timing con 30 interazioni sui filtri ha osservato una durata massima di 24 ms; è un campione di laboratorio, non una misura INP di campo.
+
+## Hero video 3D
+
+Video illustrativo originale realizzato con Blender: cella di finitura, robot articolato, rulliera, stazione di pulitura e protezioni. Non è una ricostruzione tecnica di un impianto reale. Full HD su desktop, variante 720p per mobile, loop di 6 secondi privo di audio. Supporto pausa/riproduci, sospensione fuori schermo e a scheda nascosta, nessun caricamento automatico con `prefers-reduced-motion` o `saveData`. Sorgente, rigenerazione e verifica in [HERO-VIDEO.md](HERO-VIDEO.md). Le precedenti misure Lighthouse sono storiche; consultare il report aggiornato per la nuova hero.
 
 ## Rilascio e limiti
 

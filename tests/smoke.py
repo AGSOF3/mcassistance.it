@@ -13,6 +13,8 @@ class Page(HTMLParser):
         a = dict(attrs)
         if tag == 'h1': self.h1 += 1
         if tag in ('img', 'script', 'source') and 'src' in a: self.assets.append(a['src'])
+        if tag == 'video':
+            self.assets.extend(a[key] for key in ('data-desktop-src', 'data-mobile-src') if key in a)
         if tag in ('img', 'source') and 'srcset' in a:
             self.assets.extend(part.strip().split()[0] for part in a['srcset'].split(','))
         if tag == 'link' and a.get('rel') in ('stylesheet', 'icon'): self.assets.append(a['href'])
