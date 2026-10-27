@@ -13,7 +13,7 @@ Il checkout originale comprende una home italiana e una inglese, asset Bootstrap
 - 15 foto di realizzazioni, tutte presenti nel nuovo portfolio. Inclusa `rubinetteria3.jpeg`, prima non esposta nella griglia.
 - Due video MP4 riprodotti a richiesta; il MOV originale resta disponibile con link dedicato. Gli originali non sono stati rimossi o modificati.
 - `docs/assets.json` cataloga sorgenti delle immagini utilizzate, dimensioni e peso. Derivati AVIF con fallback WebP a 480/720/960/1600 px dove la risoluzione originale lo permette; nessun ingrandimento artificiale dei formati maggiori.
-- Date documentate: fondazione giugno 2000, prima cella completa nel 2016. Il dato 131 è mantenuto con nota storica relativa al ventennale, senza presentarlo come totale attuale. Non vengono inventati volumi produttivi, tempi ciclo o specifiche.
+- Date documentate: fondazione giugno 2000, prima cella completa nel 2016. I conteggi non aggiornati degli impianti e le relative note sono stati rimossi da tutte le pagine IT/EN. Non vengono inventati volumi produttivi, tempi ciclo o specifiche.
 - La sezione delle persone è stata rimossa dalle pagine azienda IT/EN su richiesta. Le fotografie originali restano nel repository. Il marchio nell’header e nel footer utilizza `assets/img/logop.png`, con derivati WebP per alleggerire il download.
 - Indirizzo, email, telefono, P. IVA, codice fiscale, link social e documento sugli aiuti pubblici 2023 sono mantenuti. Rimossi i recapiti placeholder del vecchio form nascosto. Favicon con percorso e maiuscole corretti.
 - Entrambi i gestionali sono integralmente conservati e non modificati. Il link principale mantiene `/CadTimbratore/area-riservata/`.
