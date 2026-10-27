@@ -1,0 +1,3 @@
+CREATE VIEW presenze_utenti (ID_AZIENDA, ID_UTENTE, NOME, COGNOME, PRESENTE) AS select `u`.`ID_AZIENDA` AS `ID_AZIENDA`,`u`.`ID_UTENTE` AS `ID_UTENTE`,`u`.`NOME` AS `NOME`,`u`.`COGNOME` AS `COGNOME`,case when `u`.`ID_UTENTE` in (select `t`.`ID_UTENTE` from `timbrature` `t` where `t`.`DTA_TIMBRATURA` = curdate() and `t`.`ORA_USCITA` is null) then 'Y' else 'N' end AS `PRESENTE` from `utenti` `u`;
+
+CREATE VIEW utente_ore (ID_AZIENDA, ID_UTENTE, NOME, COGNOME) AS select distinct `u`.`ID_AZIENDA` AS `ID_AZIENDA`,`t`.`ID_UTENTE` AS `ID_UTENTE`,`u`.`NOME` AS `NOME`,`u`.`COGNOME` AS `COGNOME` from (`utenti` `u` join `timbrature` `t` on(`u`.`ID_AZIENDA` = `t`.`ID_AZIENDA` and `u`.`ID_UTENTE` = `t`.`ID_UTENTE`));

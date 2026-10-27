@@ -1,0 +1,125 @@
+body {
+	background: #e8e8e8;
+}
+
+td {
+	border-radius: 10px;
+}
+
+select{
+	padding: 0.5rem;
+	font-size: 1rem;
+}
+
+.btn{
+	padding: 0.5rem;
+}
+
+.center {
+	margin: auto;
+	width: 60%;
+/* 	border: 3px solid #73AD21; */
+	padding: 10px;
+	min-width: 600px;
+}
+
+.utente {
+	font-size: xx-large;
+}
+
+.tableCal {
+	text-align: center;
+	table-layout: fixed;
+	width: 100%;
+}
+
+td.mesi {
+	border: 2px solid #00000078;
+	background-color: #c7c7c7;
+	padding: 1rem 0;
+}
+
+td.giornoHead {
+	border: 2px solid #00000078;
+	background-color: #c7c7c7;
+	padding: 0.5rem;
+}
+
+td.giorni {
+	cursor: pointer;
+	border: 2px solid #00000078;
+	padding: 0.5rem 1.5rem;
+	transition: transform .2s;
+}
+
+td.giorni:hover {
+	-webkit-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+	transform: scale(1.05);
+}
+
+span.giorno {
+	font-size: 1.5rem;
+}
+
+span.ore {
+	display: block;
+	font-style: italic;
+}
+
+.bgRed {
+	background-color: rgb(255, 102, 102);
+}
+
+.bgGreen {
+	background-color: #02ff028a;
+}
+
+.bgBlue {
+	background-color: #268bffb5;
+}
+
+/***** POPUP DETTAGLIO ORE ********/
+.frameDettaglioOre {
+	width: 100%;
+	height: 50vh;
+}
+
+.modal {
+	visibility: hidden; /* Hidden by default */
+	opacity: 0;
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+	transition: visibility 0s, opacity 0.3s linear;
+}
+
+/* Modal Content */
+.modal-content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%;
+}
+
+/* The Close Button */
+.close {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}

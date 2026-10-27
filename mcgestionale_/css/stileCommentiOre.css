@@ -1,0 +1,35 @@
+.tip {
+    border-bottom: 0px;
+    text-decoration: none
+}
+.tip:hover {
+    cursor: help;
+    position: relative
+}
+.tip span {
+    display: none;   
+}
+.tip:hover span {
+	color: black;
+	font-size: 15px;
+    border: 1px solid black;
+    padding: 10px;
+    display: block;
+    z-index: 1;
+    background: lightgrey;
+    left: 0px;
+    margin: 10px;
+    width: 150px;
+    position: absolute;
+    top: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    top:17px;
+    left:17px;
+}
+
+.sc{
+	align-content: center;
+	font-weight: bold;
+	font-style: italic;
+}

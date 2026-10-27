@@ -1,0 +1,44 @@
+ div#main-container{
+			margin: 0 auto;
+			border: 0px solid black; 
+			height: auto;
+			width: 80%;
+			padding-bottom: 50px;
+			padding-top: 0px;
+		}
+		div#form-container{
+			width: 300px;
+		    height: auto;
+			position: relative;
+		    top: 50%;
+		    left: 50%; 
+		    margin-left: -150px;
+		    padding-bottom: 20px;
+		}
+		div#header{
+			border: 1px solid black;
+			text-align: center;
+			margin:0 auto;
+			width: 70%;
+		}
+
+ @media (max-width: 470px) {
+      h1{
+        font-size: 38px;
+      }
+      div#header{
+        width: 100%;
+      }
+      div#form-container{
+        width: 100%;
+        height: auto;
+        position: relative;
+		top: 50%;
+		left: 0%; 
+		margin-left: 0px;
+		padding-bottom: 20px;
+		border: 0px solid black;
+      }
+      div#main-container{
+        width: 100%;
+  }

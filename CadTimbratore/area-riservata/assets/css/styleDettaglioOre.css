@@ -1,0 +1,12 @@
+.new:hover, .new:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.new {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}

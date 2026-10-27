@@ -1,0 +1,17 @@
+.btnplus{
+  display: block;
+  background: #b7b7b7;
+  color: #444;
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: 2px solid #000000;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.btnplus:hover{
+  background: #4e4e4e;
+  transition: 1s;
+  border-color: #000000;
+  color: white;
+}
